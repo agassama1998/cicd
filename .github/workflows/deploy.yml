@@ -63,12 +63,12 @@ jobs:
             docker pull ${{ env.IMAGE_NAME }}:latest
 
             # Stop and remove existing container (if running)
-            docker stop materialmanagement || true
-            docker rm materialmanagement || true
+            docker stop cicd-app || true
+            docker rm cicd-app || true
 
             # Run the new container
             docker run -d \
-              --name materialmanagement \
+              --name cicd-app \
               --restart unless-stopped \
               -p 8080:8080 \
               -e ASPNETCORE_ENVIRONMENT=Production \
