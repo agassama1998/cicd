@@ -72,7 +72,6 @@ jobs:
               --restart unless-stopped \
               -p 8080:8080 \
               -e ASPNETCORE_ENVIRONMENT=Production \
-              #-e "ConnectionStrings__DefaultConnection=${{ secrets.DB_CONNECTION_STRING }}" \
               ${{ env.IMAGE_NAME }}:latest
 
             # Clean up old images
