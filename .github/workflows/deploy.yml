@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: ${{ secrets.DOCKERHUBUSERNAME }}/cicd-app
+  IMAGE_NAME: ${{ secrets.DOCKERHUBUSERNAME }}/amkcircle-cicd
 
 jobs:
   build-and-push:
@@ -63,12 +63,12 @@ jobs:
             docker pull ${{ env.IMAGE_NAME }}:latest
 
             # Stop and remove existing container (if running)
-            docker stop cicd-app || true
-            docker rm cicd-app || true
+            docker stop amkcircle-cicd || true
+            docker rm amkcircle-cicd || true
 
             # Run the new container
             docker run -d \
-              --name cicd-app \
+              --name amkcircle-cicd \
               --restart unless-stopped \
               -p 8080:8080 \
               -e ASPNETCORE_ENVIRONMENT=Production \
